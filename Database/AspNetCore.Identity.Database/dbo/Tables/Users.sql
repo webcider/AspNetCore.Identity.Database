@@ -15,9 +15,11 @@
     [TwoFactorEnabled]     BIT            NOT NULL,
     [UserName]             NVARCHAR (256) NULL,
     [Status]               INT            DEFAULT ((0)) NOT NULL,
-    [CreatedOnUtc]         DATETIME2 (7)  NOT NULL,
+    [CreatedOnUtc]         DATETIME2 (7)  CONSTRAINT [DF_Users_CreatedOnUtc] DEFAULT (sysutcdatetime()) NOT NULL,
     CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
 
 
 GO
